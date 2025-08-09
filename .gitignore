@@ -1,0 +1,7 @@
+venv/
+create/
+tests/
+__pycache__/
+gpt*
+database.db
+logs.log
