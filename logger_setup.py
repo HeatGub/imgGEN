@@ -50,37 +50,4 @@ def setup_logging():
     root_logger.handlers = []  # Clear existing handlers
     root_logger.addHandler(file_handler)
     root_logger.addHandler(console_handler)
-
-
-
-# def setup_logging(level=logging.INFO):
-#     # Define formatter
-#     formatter = logging.Formatter(
-#         fmt="%(asctime)s %(levelname)s [%(name)s.%(funcName)s] %(message)s",
-#         datefmt="%Y-%m-%d %H:%M:%S"
-#     )
-
-#     # File handler
-#     file_handler = logging.FileHandler("logs.log")
-#     file_handler.setLevel(level)
-#     file_handler.setFormatter(formatter)
-
-#     # Console handler
-#     console_handler = logging.StreamHandler(sys.stdout)
-#     console_handler.setLevel(level)
-#     console_handler.setFormatter(formatter)
-
-#     # Get root logger and clear previous handlers
-#     root_logger = logging.getLogger()
-#     root_logger.setLevel(level)
-#     root_logger.handlers = []  # Clear existing handlers to avoid duplicates
-#     root_logger.addHandler(file_handler)
-#     root_logger.addHandler(console_handler)
-
-# def setup_logging(level = logging.ERROR):
-#     logging.basicConfig(
-#         filename="logs.log",
-#         level=level,
-#         format="%(asctime)s %(levelname)s [%(name)s.%(funcName)s] %(message)s",
-#         datefmt="%Y-%m-%d %H:%M:%S",
-#     )
+    logging.getLogger("openai").setLevel(logging.WARNING) # Suppress noisy OpenAI SDK retry INFO logs

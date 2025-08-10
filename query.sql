@@ -1,5 +1,5 @@
--- SELECT * FROM images;
-SELECT error_types, error_messages FROM images;
+SELECT * FROM images;
+-- SELECT error_types, error_messages FROM images;
 
 -- SELECT * FROM images WHERE error_messages LIKE ('%decode%');
 
@@ -14,8 +14,8 @@ SELECT error_types, error_messages FROM images;
 -- SELECT time_proc_start FROM images GROUP BY time_proc_start;
 
 -- SELECT STATUS, COUNT(*) FROM images GROUP BY status;
--- UPDATE images SET status = 'pending';
 -- UPDATE images SET status = 'done';
+-- UPDATE images SET status = 'pending';
 
 
 -- SELECT datetime_ FROM images;
@@ -28,7 +28,6 @@ SELECT error_types, error_messages FROM images;
 
 -- UPDATE images SET status = 'done' WHERE dir = 'D:\imgGEN\paths\create\generated\000001\000001257617486';
 -- SELECT * FROM images WHERE status = 'done';
-
 
 -- SELECT dir || '\' || file_name AS full_path FROM images;
 
