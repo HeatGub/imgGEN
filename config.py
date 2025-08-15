@@ -10,7 +10,6 @@ DATABASE_PATH = "database.db" # keep in the same directory as main.py
 DATABASE_TABLE_NAME = "images"
 
 # OPENAI
-OPENAI_API_KEY = "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"
 OPENAI_CALLS_MAX_RETRIES = 2 # 0 is minimum. EXPONENTIAL WAIT: time.sleep(2 ** attempt) - so the longest one = 2^OPENAI_CALLS_MAX_RETRIES seconds
 OPENAI_TIMEOUT_SECONDS = 70 # image generates for about 30 seconds, not less than that!
 

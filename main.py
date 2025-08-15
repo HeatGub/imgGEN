@@ -9,6 +9,8 @@ import base64
 from openai import OpenAI, OpenAIError
 import random
 import logger_setup
+import os
+from dotenv import load_dotenv
 
 logger_setup.setup_logging()
 logger = logging.getLogger(__name__)
@@ -43,7 +45,7 @@ def call_openai_api_and_save_image(openai_client, original_image_dir, original_f
                 model = "gpt-image-1",
                 image = [original_image],
                 prompt = config.OPENAI_PROMPT,
-                quality = "medium",
+                quality = "low",
                 output_format = config.OUTPUT_IMAGE_EXTENSION,
                 size = "1024x1024",
                 # output_compression = 50,
@@ -113,7 +115,9 @@ def convert_single_pending_image(openai_client):
         return True  # continue processing others
 
 def process_all_pending_images():
-    openai_client = OpenAI(api_key=config.OPENAI_API_KEY, timeout=config.OPENAI_TIMEOUT_SECONDS)
+    load_dotenv()
+    OPENAI_API_KEY = os.getenv("OPENAI_API_KEY")
+    openai_client = OpenAI(api_key=OPENAI_API_KEY, timeout=config.OPENAI_TIMEOUT_SECONDS)
     while True:
         keep_going = convert_single_pending_image(openai_client)
         if ERROR_COUNTER >= config.ERROR_COUNTER_LIMIT:

@@ -15,7 +15,7 @@ SELECT * FROM images;
 
 -- SELECT STATUS, COUNT(*) FROM images GROUP BY status;
 -- UPDATE images SET status = 'done';
--- UPDATE images SET status = 'pending';
+-- UPDATE images SET status = 'pending' WHERE id = 1;
 
 
 -- SELECT datetime_ FROM images;
